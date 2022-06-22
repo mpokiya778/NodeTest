@@ -9,7 +9,7 @@ mongoose.connect("mongodb+srv://Monali:monali5401@cluster0.ydavz.mongodb.net/Mov
     var app = express();
     app.use(bodyParser.urlencoded({extended:false}))
     app.use(express.json())
-    app.use('api',router)
+    app.use('/api',router)
 
     app.listen(process.env.PORT,()=>{
         console.log("server started")
