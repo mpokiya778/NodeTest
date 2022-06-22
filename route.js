@@ -8,7 +8,6 @@ router.get("/movies",async(req,res)=>{
     res.send(iMovie)
 })
 
-
 router.post('/movies',async(req,res)=>{
     const iMovie = new Movie({
         name : req.body.name,
