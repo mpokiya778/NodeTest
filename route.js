@@ -8,4 +8,20 @@ router.get("/movies",async(req,res)=>{
     res.send(iMovie)
 })
 
+
+router.post('/movies',async(req,res)=>{
+    const iMovie = new Movie({
+        name : req.body.name,
+        rating : req.body.rating
+    })
+    console.log(req.body.name);
+    await iMovie.save((err,msg)=>{
+        if(err){
+            res.send(err)
+        }else{
+            res.send(msg)
+        }
+    })
+})
+
 module.exports=router
