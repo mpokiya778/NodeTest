@@ -42,4 +42,18 @@ router.patch("/movies/:id",async(req,res)=>{
     })
 })
 
+router.delete("/movies/:id",async(req,res)=>{
+    await Movie.deleteOne({_id:req.params.id},(err,msg)=>{
+        if(err){
+            res.status(500).json({
+                "err":err
+            })
+        }else{
+            res.status(200).json({
+                "message":msg
+            })
+        }
+    })
+})
+
 module.exports=router
